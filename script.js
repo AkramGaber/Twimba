@@ -1,56 +1,3 @@
-// import { tweetsData } from "./data"
-// import { v4 as uuidv4 } from 'https://jspm.dev//uuid'
-
-// const tweetBtn = document.getElementById('tweet-btn')
-// const tweetInput = document.getElementById('tweet-input')
-
-// tweetBtn.addEventListener('click', function(){
-//     console.log(tweetInput.value)
-//     tweetInput.value = ''
-// })
-
-
-// function getFeedHtml(){
-    
-//     let feedHtml = ``
-    
-//     tweetsData.forEach(function(tweet){
-//         feedHtml += `
-//         <div class="tweet">
-//             <div class="tweet-inner">
-//                 <img src="${tweet.profilePic}" class="profile-pic">
-//                 <div>
-//                     <p class="handle">${tweet.handle}</p>
-//                     <p class="tweet-text">${tweet.tweetText}</p>
-//                     <div class="tweet-details">
-//                         <span class="tweet-detail">
-//                             <i class='fa-regular fa-comment-dots'></i>
-//                             ${tweet.replies.length}
-//                         </span>
-//                         <span class="tweet-detail">
-//                             <i class='fa-solid fa-heart'></i>
-//                             ${tweet.likes}
-//                         </span>
-//                         <span class="tweet-detail">
-//                             <i class='fa-solid fa-retweet'></i>
-//                             ${tweet.retweets}
-//                         </span>
-//                     </div>   
-//                 </div>            
-//             </div>
-//         </div>
-// `
-//    })
-//    return feedHtml 
-// }
-
-// function render(){
-//     document.getElementById('feed').innerHTML = getFeedHtml()
-// }
-
-// render()
-
-
 // Importing data and uuidv4
 import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
@@ -138,15 +85,9 @@ function getFeedHtml(){
     let feedHtml = ``
 
     tweetsData.forEach(function(tweet){
-        let likeIconClass = ''
-        if(tweet.isLiked){
-            likeIconClass = 'liked'
-        }
+        const likeIconClass = tweet.isLiked ? likeIconClass = 'liked' : ''
         
-        let retweetIconClass = ''
-        if(tweet.isRetweeted){
-            retweetIconClass = 'retweeted'
-        }
+        const retweetIconClass = tweet.isRetweeted ? retweetIconClass = 'retweeted' : ''
 
         let repliesHtml = ''
         if(tweet.replies.length > 0){
